@@ -21,7 +21,8 @@ namespace ZH3_FNJOF9
         {
             InitializeComponent();
 
-            context.Orders.Load();
+            context.Students.Load();
+            dataGridView1.DataSource = studentBindingSource;
         }
     }
 }

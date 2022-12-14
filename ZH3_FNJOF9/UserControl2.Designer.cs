@@ -30,14 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.orderSkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentFkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.textbookFkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.neptunDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -45,45 +48,53 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderSkDataGridViewTextBoxColumn,
-            this.studentFkDataGridViewTextBoxColumn,
-            this.textbookFkDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.orderBindingSource;
+            this.studentIdDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.neptunDataGridViewTextBoxColumn,
+            this.ordersDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.studentBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(782, 414);
             this.dataGridView1.TabIndex = 0;
             // 
-            // orderBindingSource
-            // 
-            this.orderBindingSource.DataSource = typeof(ZH3_FNJOF9.Models.Order);
-            // 
             // orderBindingSource1
             // 
             this.orderBindingSource1.DataSource = typeof(ZH3_FNJOF9.Models.Order);
             // 
-            // orderSkDataGridViewTextBoxColumn
+            // orderBindingSource
             // 
-            this.orderSkDataGridViewTextBoxColumn.DataPropertyName = "OrderSk";
-            this.orderSkDataGridViewTextBoxColumn.HeaderText = "OrderSk";
-            this.orderSkDataGridViewTextBoxColumn.Name = "orderSkDataGridViewTextBoxColumn";
+            this.orderBindingSource.DataSource = typeof(ZH3_FNJOF9.Models.Order);
             // 
-            // studentFkDataGridViewTextBoxColumn
+            // studentBindingSource
             // 
-            this.studentFkDataGridViewTextBoxColumn.DataPropertyName = "StudentFkNavigation";
-            this.studentFkDataGridViewTextBoxColumn.DataSource = this.orderBindingSource1;
-            this.studentFkDataGridViewTextBoxColumn.DisplayMember = "StudentFkNavigation";
-            this.studentFkDataGridViewTextBoxColumn.HeaderText = "StudentFk";
-            this.studentFkDataGridViewTextBoxColumn.Name = "studentFkDataGridViewTextBoxColumn";
-            this.studentFkDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.studentFkDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.studentBindingSource.DataSource = typeof(ZH3_FNJOF9.Models.Student);
             // 
-            // textbookFkDataGridViewTextBoxColumn
+            // studentIdDataGridViewTextBoxColumn
             // 
-            this.textbookFkDataGridViewTextBoxColumn.DataPropertyName = "TextbookFk";
-            this.textbookFkDataGridViewTextBoxColumn.HeaderText = "TextbookFk";
-            this.textbookFkDataGridViewTextBoxColumn.Name = "textbookFkDataGridViewTextBoxColumn";
+            this.studentIdDataGridViewTextBoxColumn.DataPropertyName = "StudentId";
+            this.studentIdDataGridViewTextBoxColumn.HeaderText = "StudentId";
+            this.studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // neptunDataGridViewTextBoxColumn
+            // 
+            this.neptunDataGridViewTextBoxColumn.DataPropertyName = "Neptun";
+            this.neptunDataGridViewTextBoxColumn.HeaderText = "Neptun";
+            this.neptunDataGridViewTextBoxColumn.Name = "neptunDataGridViewTextBoxColumn";
+            // 
+            // ordersDataGridViewTextBoxColumn
+            // 
+            this.ordersDataGridViewTextBoxColumn.DataPropertyName = "Orders";
+            this.ordersDataGridViewTextBoxColumn.HeaderText = "Orders";
+            this.ordersDataGridViewTextBoxColumn.Name = "ordersDataGridViewTextBoxColumn";
+            this.ordersDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // UserControl2
             // 
@@ -93,8 +104,9 @@
             this.Name = "UserControl2";
             this.Size = new System.Drawing.Size(788, 420);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -102,10 +114,12 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn orderSkDataGridViewTextBoxColumn;
-        private DataGridViewComboBoxColumn studentFkDataGridViewTextBoxColumn;
         private BindingSource orderBindingSource1;
-        private DataGridViewTextBoxColumn textbookFkDataGridViewTextBoxColumn;
         private BindingSource orderBindingSource;
+        private DataGridViewTextBoxColumn studentIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn neptunDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ordersDataGridViewTextBoxColumn;
+        private BindingSource studentBindingSource;
     }
 }

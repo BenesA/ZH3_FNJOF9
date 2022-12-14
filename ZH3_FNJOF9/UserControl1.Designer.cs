@@ -61,6 +61,7 @@
             this.studentbox.Name = "studentbox";
             this.studentbox.Size = new System.Drawing.Size(160, 319);
             this.studentbox.TabIndex = 2;
+            this.studentbox.SelectedIndexChanged += new System.EventHandler(this.studentbox_SelectedIndexChanged);
             // 
             // orderbox
             // 
@@ -88,6 +89,7 @@
             this.add.TabIndex = 5;
             this.add.Text = "Hozzáadás";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // rem
             // 
@@ -97,6 +99,7 @@
             this.rem.TabIndex = 6;
             this.rem.Text = "Töréls";
             this.rem.UseVisualStyleBackColor = true;
+            this.rem.Click += new System.EventHandler(this.rem_Click);
             // 
             // UserControl1
             // 

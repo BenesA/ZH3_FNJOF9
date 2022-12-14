@@ -28,7 +28,7 @@ namespace ZH3_FNJOF9
             studentbox.DisplayMember = "Name";
             bookbox.DisplayMember = "Title";
             orderbox.DisplayMember = "Title";
-            orderbox.ValueMember = "StudentFK";
+            orderbox.ValueMember = "OrderSK";
 
             Getstudent();
             Getbooks();
@@ -58,6 +58,51 @@ namespace ZH3_FNJOF9
         private void konyvszur_TextChanged(object sender, EventArgs e)
         {
             Getbooks();
+        }
+
+        private void Getorders()
+        {
+            Student stu = (Student)studentbox.SelectedItem;
+            orderbox.DataSource = (
+                from x in context.Orders
+                where x.StudentFk == stu.StudentId
+                select new
+                {
+                    x.OrderSk,
+                    x.StudentFk,
+                    x.TextbookFk.Title
+                }).ToList();
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            Student stu = (Student)studentbox.SelectedItem;
+            Textbook tex = (Textbook)bookbox.SelectedItem;
+            Order or = new Order();
+            or.TextbookFk = tex.TextbookId;
+            or.StudentFk = stu.StudentId;
+            context.Orders.Local.Add(or);
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            Getorders();
+        }
+
+        private void studentbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Getorders();
+        }
+
+        private void rem_Click(object sender, EventArgs e)
+        {
+            int oID = Convert.ToInt32(orderbox.SelectedValue);
+            var o = 
         }
     }
 }
