@@ -102,7 +102,12 @@ namespace ZH3_FNJOF9
         private void rem_Click(object sender, EventArgs e)
         {
             int oID = Convert.ToInt32(orderbox.SelectedValue);
-            var o = 
+            var o = from x in context.Orders
+                    where x.OrderSk == oID
+                    select x;
+            context.Orders.Remove(o.FirstOrDefault());
+            context.SaveChanges();
+            Getorders();
         }
     }
 }
